@@ -2,8 +2,8 @@
   "scripts": {
     "start": "npx vite"
   },
-  "main": "index.html",
   "dependencies": {
+    "gh-pages": "^6.0.0",
     "three": "^0.155.0",
     "three-particle-geometry": "^1.1.6",
     "vite": "^4.4.9"
