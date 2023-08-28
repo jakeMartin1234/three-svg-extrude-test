@@ -8,6 +8,7 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+camera.position.z = 10;
 
 // Add lights in
 const light1 = new THREE.PointLight('#FFFFFF', 100)
@@ -35,7 +36,7 @@ controls.update();
 async function loadAndExtrudeSVG() {
     try {
         const bananaScale = 0.01;
-        const geometry = await svgToExtrudedGeometry('bananaSVG.svg', 1, bananaScale); // Assuming svgToThree returns a promise
+        const geometry = await svgToExtrudedGeometry('bananaSVG.svg', 1, bananaScale);
 
         const material = new THREE.MeshPhongMaterial({ color: 'yellow' });
         const mesh = new THREE.Mesh(geometry, material);
@@ -45,8 +46,6 @@ async function loadAndExtrudeSVG() {
 
         scene.add(mesh);
 
-        // Adjust the camera position and render the scene
-        camera.position.z = 10;
         animate();
     } catch (error) {
         console.error("Error extruding SVG:", error);

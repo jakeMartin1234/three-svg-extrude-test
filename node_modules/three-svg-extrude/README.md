@@ -22,18 +22,17 @@ npm install three-svg-extrude
 Import the Library into your file.
 
 ```javascript
-import { svgToExtrudedGeometry } from '../three-svg-extrude/src';
+import { svgToExtrudedGeometry } from 'three-svg-extrude';
 ```
 
 The following code is from the [demo](https://github.com/jakeMartin1234/three-svg-extrude-test) and is 
 an example of the intended method of use.
 
 ```javascript
-// Function to load and extrude the SVG
 async function loadAndExtrudeSVG() {
     try {
         const bananaScale = 0.01;
-        const geometry = await svgToExtrudedGeometry('bananaSVG.svg', 1, bananaScale); // Assuming svgToThree returns a promise
+        const geometry = await svgToExtrudedGeometry('bananaSVG.svg', 1, bananaScale);
 
         const material = new THREE.MeshPhongMaterial({ color: 'yellow' });
         const mesh = new THREE.Mesh(geometry, material);
@@ -42,9 +41,6 @@ async function loadAndExtrudeSVG() {
         mesh.position.x += 3
 
         scene.add(mesh);
-
-        // Adjust the camera position and render the scene
-        camera.position.z = 10;
         animate();
     } catch (error) {
         console.error("Error extruding SVG:", error);
