@@ -2,4 +2,52 @@
 
 An npm package that effortlessly transforms SVG shapes into extruded 3D geometries for use in ThreeJS scenes.
 
-!!! Package is still in development and hasn't been tested.
+Feel free to clone and use the [demo](https://github.com/jakeMartin1234/three-svg-extrude-test)
+
+![Banana Demo](./bananaSVGExtrude.png)
+
+## Prerequisites
+
+1. Have [threeJS](https://threejs.org/) installed in your project.
+2. Have a threeJS scene set up that is runnable on the browser.
+
+## Installation
+
+```bash
+npm install three-svg-extrude
+``` 
+
+## Code Snippets
+
+Import the Library into your file.
+
+```javascript
+import { svgToExtrudedGeometry } from '../three-svg-extrude/src';
+```
+
+The following code is from the [demo](https://github.com/jakeMartin1234/three-svg-extrude-test) and is 
+an example of the intended method of use.
+
+```javascript
+// Function to load and extrude the SVG
+async function loadAndExtrudeSVG() {
+    try {
+        const bananaScale = 0.01;
+        const geometry = await svgToExtrudedGeometry('bananaSVG.svg', 1, bananaScale); // Assuming svgToThree returns a promise
+
+        const material = new THREE.MeshPhongMaterial({ color: 'yellow' });
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.rotation.z += Math.PI / 2
+        mesh.position.y -= 6;
+        mesh.position.x += 3
+
+        scene.add(mesh);
+
+        // Adjust the camera position and render the scene
+        camera.position.z = 10;
+        animate();
+    } catch (error) {
+        console.error("Error extruding SVG:", error);
+    }
+}
+```

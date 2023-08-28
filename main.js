@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { svgToExtrudedGeometry } from '../three-svg-extrude/src';
+import { svgToExtrudedGeometry } from 'three-svg-extrude';
 
 // Initialize scene, camera, and renderer
 const scene = new THREE.Scene();
