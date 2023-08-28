@@ -1,0 +1,32 @@
+{
+  "name": "three-svg-extrude",
+  "version": "1.0.0",
+  "description": "An npm package that effortlessly transforms SVG shapes into extruded 3D geometries for use in ThreeJS scenes.",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "threeJS",
+    "svg",
+    "extrude"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "author": "Jake Martin",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.155.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.10",
+    "babel-loader": "^9.1.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
